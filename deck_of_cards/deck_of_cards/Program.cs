@@ -112,7 +112,68 @@ namespace deck_of_cards
                         sum_of_cards += (int) Char.GetNumericValue(temp_card, 1);
                         break;
                 }
-                Console.WriteLine("You drew {0} and you have {1} points", temp_card, sum_of_cards);
+
+                // Get the name of the card
+                var card_name = "";
+                switch (temp_card[1])
+                {
+                    case '1':
+                        card_name += "ace";
+                        break;
+                    case '2':
+                        card_name += "two";
+                        break;
+                    case '3':
+                        card_name += "three";
+                        break;
+                    case '4':
+                        card_name += "four";
+                        break;
+                    case '5':
+                        card_name += "five";
+                        break;
+                    case '6':
+                        card_name += "six";
+                        break;
+                    case '7':
+                        card_name += "seven";
+                        break;
+                    case '8':
+                        card_name += "eight";
+                        break;
+                    case '9':
+                        card_name += "nine";
+                        break;
+                    case 'T':
+                        card_name += "ten";
+                        break;
+                    case 'J':
+                        card_name += "jack";
+                        break;
+                    case 'Q':
+                        card_name += "queen";
+                        break;
+                    case 'K':
+                        card_name += "king";
+                        break;
+                }
+                card_name += " of ";
+                switch (temp_card[0])
+                {
+                    case 'S':
+                        card_name += "spades";
+                        break;
+                    case 'H':
+                        card_name += "hearts";
+                        break;
+                    case 'D':
+                        card_name += "diamonds";
+                        break;
+                    case 'C':
+                        card_name += "clubs";
+                        break;
+                }
+                Console.WriteLine("You drew a {0} and you have {1} points", card_name, sum_of_cards);
 
             }
         }
