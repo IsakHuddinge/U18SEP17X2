@@ -80,6 +80,41 @@ namespace deck_of_cards
             {
                 Console.WriteLine(card);
             }
+
+            // Prompt for user input.
+            var prompt = ">";
+            var sum_of_cards = 0;
+            // Card that is going to be drawn.
+            var current_card = 0;
+            // Draw cards.
+            while (true)
+            {
+                Console.WriteLine("Draw a card? (Y/n)");
+                Console.Write(prompt);
+                var user_answer = Console.ReadLine();
+                if (user_answer.ToLower() != "y")
+                {
+                    Console.WriteLine("Ok!");
+                    break;
+                }
+
+                string temp_card = card_deck[current_card++];
+                // Add the value of the drawn card to the sum.
+                switch (temp_card[1])
+                {
+                    case 'T':
+                    case 'J':
+                    case 'Q':
+                    case 'K':
+                        sum_of_cards += 10;
+                        break;
+                    default:
+                        sum_of_cards += (int) Char.GetNumericValue(temp_card, 1);
+                        break;
+                }
+                Console.WriteLine("You drew {0} and you have {1} points", temp_card, sum_of_cards);
+
+            }
         }
     }
 }
