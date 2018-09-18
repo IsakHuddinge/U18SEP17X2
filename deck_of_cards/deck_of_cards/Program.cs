@@ -94,7 +94,7 @@ namespace deck_of_cards
                 var user_answer = Console.ReadLine();
                 if (user_answer.ToLower() != "y")
                 {
-                    Console.WriteLine("Ok!");
+                    Console.WriteLine("Ok! You have {0} points", sum_of_cards);
                     break;
                 }
 
@@ -175,7 +175,20 @@ namespace deck_of_cards
                 }
                 Console.WriteLine("You drew a {0} and you have {1} points", card_name, sum_of_cards);
 
+                if (sum_of_cards == 21)
+                {
+                    Console.WriteLine("Congrats! You got 21 points!");
+                    break;
+                }
+                else if(sum_of_cards > 21)
+                {
+                    Console.WriteLine("You lost!");
+                    break;
+                }
             }
+
+            Console.WriteLine("Press any key to continue. . .");
+            Console.ReadKey();
         }
     }
 }
